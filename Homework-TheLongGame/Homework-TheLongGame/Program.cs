@@ -1,4 +1,7 @@
-﻿namespace Homework_TheLongGame
+﻿using System;
+using System.IO;
+
+namespace Homework_TheLongGame
 {
     internal class Program
     {
@@ -15,9 +18,14 @@
 
             if (File.Exists(filePath))
             {
-                //loads previous score if file exists 
+                // loads previous score if file exists 
+                // converts the string from file into an integer 
                 score = int.Parse(File.ReadAllText(filePath));
-                Console.WriteLine("Hey " + username + "!" + " Welcome back! Your srarting score is " + score);
+                Console.WriteLine("Hey " + username + "!" + " Welcome back! Your starting score is: " + score);
+            } else
+            {
+                // if it's a new user 
+                Console.WriteLine("Welcome " + username + "! " + "Your starting score is: " + score);
             }
             
             // key press to track score 
@@ -27,7 +35,7 @@
                 if (keyInfo.Key == ConsoleKey.Enter)
                 {
                     break;
-                }
+                } 
 
                 score++;
                 Console.WriteLine("Current score: " + score);
